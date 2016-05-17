@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-MAINTAINER TuRzAm
+MAINTAINER James Eckersall <james.eckersall@gmail.com>
 
 # Var for first config
 # Server Name
