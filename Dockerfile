@@ -2,27 +2,21 @@ FROM ubuntu:14.04
 
 MAINTAINER James Eckersall <james.eckersall@gmail.com>
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 # Var for first config
 # Server Name
-ENV SESSIONNAME "Ark Docker"
-# Map name
-ENV SERVERMAP "TheIsland"
-# Server password
-ENV SERVERPASSWORD ""
-# Admin password
-ENV ADMINPASSWORD "adminpassword"
-# Nb Players
-ENV NBPLAYERS 70
-# If the server is updating when start with docker start
-ENV UPDATEONSTART 1
-# if the server is backup when start with docker start
-ENV BACKUPONSTART 1
-# branch on github for ark server tools
-ENV BRANCH master
-# Server PORT (you can't remap with docker, it doesn't work)
-ENV SERVERPORT 27015
-# Steam port (you can't remap with docker, it doesn't work)
-ENV STEAMPORT 7778
+ENV \
+  SESSIONNAME="Ark Docker" \
+  SERVERMAP="TheIsland" \
+  SERVERPASSWORD="" \
+  ADMINPASSWORD="adminpassword" \
+  NBPLAYERS=70 \
+  UPDATEONSTART=1 \
+  BACKUPONSTART=1 \
+  BRANCH=master \
+  SERVERPORT=27015 \
+  STEAMPORT=7778
 
 # Install dependencies 
 RUN apt-get update &&\ 
@@ -50,9 +44,10 @@ COPY arkmanager-user.cfg /home/steam/arkmanager.cfg
 RUN chmod 777 /home/steam/run.sh
 RUN mkdir /ark
 
+RUN mkdir -p /home/steam/ark-server-tools
 
 # We use the git method, because api github has a limit ;)
-RUN git clone -b $BRANCH https://github.com/FezVrasta/ark-server-tools.git /home/steam/ark-server-tools
+RUN git clone -b $BRANCH https://github.com/FezVrasta/ark-server-tools.git /home/steam/ark-server-tools/
 # Install 
 WORKDIR /home/steam/ark-server-tools/tools
 RUN chmod +x install.sh 
