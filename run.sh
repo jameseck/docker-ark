@@ -51,18 +51,6 @@ else
 	fi
 fi
 
-# If there is uncommented line in the file
-CRONNUMBER=`grep -v "^#" /ark/crontab | wc -l`
-if [ $CRONNUMBER -gt 0 ]; then
-	echo "Loading crontab..."
-	# We load the crontab file if it exist.
-	crontab /ark/crontab
-	# Cron is attached to this process
-	sudo cron -f &
-else
-	echo "No crontab set."
-fi
-
 # Launching ark server
 arkmanager start @all
 
