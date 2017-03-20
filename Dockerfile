@@ -21,8 +21,7 @@ RUN \
   yum-config-manager --add-repo=http://negativo17.org/repos/epel-steam.repo && \
   yum-config-manager --add-repo=http://negativo17.org/repos/epel-multimedia.repo && \
   yum install -y epel-release && \
-  yum install -y bzip2 curl git steam
-
+  yum install -y bzip2 curl git lsof perl-Compress-Zlib steam
 
 # Run commands as the steam user
 RUN \
