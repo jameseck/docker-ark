@@ -2,6 +2,7 @@ version: '2'
 services:
   docker-ark:
     build: .
-    image: jameseckersall/docker-ark
+    image: jameseckersall/docker-ark:centos
+    user: "1000:1000"
     environment:
       DEBUG: "no"
