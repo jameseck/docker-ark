@@ -19,7 +19,6 @@ cd /ark
 [ ! -d /ark/template ] && mkdir /ark/template
 # We overwrite the template file each time
 cp /home/steam/arkmanager.cfg /ark/template/arkmanager.cfg
-cp /home/steam/crontab /ark/template/crontab
 # Creating directory tree && symbolic link
 [ ! -f /ark/arkmanager.cfg ] && cp /home/steam/arkmanager.cfg /ark/arkmanager.cfg
 [ ! -d /ark/log ] && mkdir /ark/log
