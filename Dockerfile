@@ -34,6 +34,7 @@ COPY run.sh /home/steam/run.sh
 COPY arkmanager-user.cfg /home/steam/arkmanager.cfg
 
 RUN \
+  chmod 0770 /home/steam -R && \
   chmod 0777 /home/steam/run.sh && \
   mkdir -p /ark /home/steam/ark-server-tools
 
@@ -49,7 +50,7 @@ RUN \
 # Define default config file in /ark
 COPY arkmanager-system.cfg /etc/arkmanager/arkmanager.cfg
 
-RUN chown steam -R /ark && chmod 755 -R /ark
+RUN chown steam -R /ark && chmod 0775 -R /ark
 
 USER steam
 
