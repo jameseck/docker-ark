@@ -29,7 +29,7 @@ cp /home/steam/crontab /ark/template/crontab
 [ ! -d /ark/server/ShooterGame/Saved/Config/LinuxServer ] && mkdir -p /ark/server/ShooterGame/Saved/Config/LinuxServer
 [ ! -f /ark/GameUserSettings.ini ] && ln -s server/ShooterGame/Saved/Config/LinuxServer/GameUserSettings.ini GameUserSettings.ini
 
-sudo cp -f /ark/arkmanager.cfg /etc/arkmanager/instances/main.cfg
+cp -f /ark/arkmanager.cfg /etc/arkmanager/instances/main.cfg
 
 
 if [ ! -d "/ark/server"  ] || [ ! -f "/ark/server/arkversion" ];then
